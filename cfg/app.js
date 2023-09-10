@@ -27,7 +27,7 @@ async function userManagement() {
   userID = verifyTokenLocalStorage();
   try {
     const { data } = await axios.get(
-      `http://127.0.0.1:3000/${userID}/${currentPage}`
+      `https://crud-api-wkqg.onrender.com/${userID}/${currentPage}`
     );
     verifyPages(data.totalPages);
     welcomeUser.innerHTML = `Hello, ${data.name}!`;
@@ -77,7 +77,7 @@ function addMessage() {
     const title = messageForm.title.value;
     const message = messageForm.message.value;
     try {
-      const res = await axios.post(`http://127.0.0.1:3000/${userID}/message`, {
+      const res = await axios.post(`https://crud-api-wkqg.onrender.com/${userID}/message`, {
         title: title,
         message: message,
       });
@@ -116,7 +116,7 @@ function editItem(messageId) {
     popUpAlert.innerHTML = "";
     try {
       const res = await axios.put(
-        `http://127.0.0.1:3000/${userID}/${messageId}`,
+        `https://crud-api-wkqg.onrender.com/${userID}/${messageId}`,
         {
           title: title,
           message: message,
@@ -147,7 +147,7 @@ function editItem(messageId) {
 async function deleteItem(messageId) {
   try {
     const res = await axios.delete(
-      `http://127.0.0.1:3000/${userID}/${messageId}`
+      `https://crud-api-wkqg.onrender.com/${userID}/${messageId}`
     );
     const resMsg = res.data.message;
     popUpAlert.classList.add("successMessage");
