@@ -14,7 +14,7 @@ function loginUser() {
       });
       alertMsg.innerHTML = `${res.data.message}`;
       alertMsg.setAttribute("style", "color: #005C4B");
-      const userID = res.data.userId
+      const userID = res.data.userId;
       localStorage.setItem("userID", JSON.stringify(userID));
 
       setTimeout(function () {
@@ -33,7 +33,7 @@ function initializePasswordToggler() {
   const peekPassOne = document.querySelector("#peekPassOne");
   peekPassOne.addEventListener("click", () => {
     login.password.type =
-    login.password.type === "password" ? "text" : "password";
+      login.password.type === "password" ? "text" : "password";
   });
 }
-initializePasswordToggler()
+initializePasswordToggler();

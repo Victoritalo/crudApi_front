@@ -70,17 +70,20 @@ function verifyPages(numOfPages) {
 function addMessage() {
   messageForm.reset();
   modal.classList.add("active");
-  
+
   const submitHandler = async (event) => {
     event.preventDefault();
     messageForm.removeEventListener("submit", submitHandler);
     const title = messageForm.title.value;
     const message = messageForm.message.value;
     try {
-      const res = await axios.post(`https://crud-api-wkqg.onrender.com/${userID}/message`, {
-        title: title,
-        message: message,
-      });
+      const res = await axios.post(
+        `https://crud-api-wkqg.onrender.com/${userID}/message`,
+        {
+          title: title,
+          message: message,
+        }
+      );
       const resMsg = res.data.message;
       modal.classList.remove("active");
       popUpAlert.classList.add("successMessage");
@@ -99,7 +102,6 @@ function addMessage() {
       popUpAlert.innerHTML = "";
       popUpAlert.classList.remove("errorMessage");
     }, 1500);
-
   };
   messageForm.addEventListener("submit", submitHandler);
 }
@@ -108,7 +110,7 @@ function editItem(messageId) {
   messageForm.reset();
   modal.classList.add("active");
 
-  const submitHandler =  async (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
     messageForm.removeEventListener("submit", submitHandler);
     const title = messageForm.title.value;

@@ -10,12 +10,15 @@ function createAccount() {
     const confirmPass = signUp.confirmPass.value;
 
     try {
-      const res = await axios.post("https://crud-api-wkqg.onrender.com/signup", {
-        userName: name,
-        userEmail: email,
-        userPass: password,
-        confirmPassword: confirmPass,
-      });
+      const res = await axios.post(
+        "https://crud-api-wkqg.onrender.com/signup",
+        {
+          userName: name,
+          userEmail: email,
+          userPass: password,
+          confirmPassword: confirmPass,
+        }
+      );
 
       alertMsg.innerHTML = `${res.data.message}`;
       alertMsg.setAttribute("style", "color: #005C4B");
@@ -30,18 +33,17 @@ function createAccount() {
   });
 }
 
-
 function initializePasswordToggler() {
   const peekPassOne = document.querySelector("#peekPassOne");
   const peekPassTwo = document.querySelector("#peekPassTwo");
   peekPassOne.addEventListener("click", () => {
     signUp.password.type =
-    signUp.password.type === "password" ? "text" : "password";
+      signUp.password.type === "password" ? "text" : "password";
   });
   peekPassTwo.addEventListener("click", () => {
     signUp.confirmPass.type =
-    signUp.confirmPass.type === "password" ? "text" : "password";
+      signUp.confirmPass.type === "password" ? "text" : "password";
   });
 }
 createAccount();
-initializePasswordToggler()
+initializePasswordToggler();
